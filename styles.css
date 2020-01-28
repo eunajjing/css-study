@@ -2,11 +2,33 @@
 
 li:matches(:nth-child(even), .target) {
   /* l1 태그의 짝수 태그와 target 클래스 이름을 가지고 있는 대상에게 적용
-    만약 대상이 짝수가 아니더라도 적용 된다*/
+    만약 대상이 짝수가 아니더라도 적용 된다 */
   background-color: blue;
 }
 
 li:not(.target) {
   /* li 태그에게 적용하되 클래스 이름이 target이 아닌 대상에게 적용 */
   background-color: blue;
+}
+
+:root {
+  --awesomeColor: 1px solid red;
+}
+
+li:first-child a {
+  border: var(--awesomeColor);
+}
+
+@custom-selector :--headers h1, h2, h3, h4, h5, h6;
+
+:--headers {
+  color: purple;
+}
+
+@custom-media --ipad-size (450px < width <= 850px);
+
+@media (--ipad-size) {
+  body {
+    background-color: red;
+  }
 }

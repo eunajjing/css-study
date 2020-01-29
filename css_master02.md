@@ -122,3 +122,47 @@ p {
 }
 ```
 
+### `Nesting Rules`
+
+#### `index.html`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Advanced CSS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <section>
+        <li><a href="/">hello world</a></li>
+      </section>
+    </main>
+  </body>
+</html>
+```
+
+#### `styles.css`
+
+```css
+main {
+  /* main 관련 css 적고 */
+  & section {
+    /* section 관련 css 적고 */
+    & li {
+      /* li 관련 css 적고 */
+      & a {
+        /* a 관련 css 적고 */
+        &:hover {
+          /* hover 되었을 때 css 적기 */
+        }
+      }
+    }
+  }
+}
+```
+

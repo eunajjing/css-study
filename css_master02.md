@@ -54,11 +54,11 @@ li:not(.target) {
 
 ```css
 :root {
-  --awesomeColor : 1px solid red;
+  --awesomeColor: 1px solid red;
 }
 
 li:first-child a {
-  border : var(--awesomeColor)
+  border: var(--awesomeColor);
 }
 ```
 
@@ -69,7 +69,7 @@ li:first-child a {
 /* h1, h2, h3, h4, h5, h6를 --headers라는 이름으로 지정하고 */
 
 :--headers {
-  color : purple;
+  color: purple;
 }
 /* 부른다 */
 ```
@@ -80,9 +80,9 @@ li:first-child a {
 @custom-media --ipad-size (450px < width <= 850px);
 /* 정의하고*/
 
-@media(--ipad-size) {
+@media (--ipad-size) {
   body {
-   background-color: red; 
+    background-color: red;
   }
 }
 /* 사용 */
@@ -94,11 +94,11 @@ li:first-child a {
 
 ```css
 a {
-	color : yellow;	
+  color: yellow;
 }
 
 a:hover {
-  color : color-mod(yellow /* 쓸 수 있는 키워드 삽입 */)
+  color: color-mod(yellow /* 쓸 수 있는 키워드 삽입 */);
 }
 ```
 
@@ -106,7 +106,7 @@ a:hover {
 
 ```css
 h1 {
-	color : gray(100);
+  color: gray(100);
   /* 얼마나 회색 빛을 띄게 하고 싶은지를 %로 적는다
   	0이 완전한 검정색 */
 }
@@ -118,7 +118,7 @@ h1 {
 
 ```css
 p {
-	font-family : system-ui;
+  font-family: system-ui;
 }
 ```
 
@@ -166,3 +166,69 @@ main {
 }
 ```
 
+## [`CSS grid kiss`](https://sylvainpolletvillard.github.io/grid-kiss-playground/#basic-layout)
+
+```shell
+yarn add postcss-grid-kiss --dev
+```
+
+### `index.html`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Advanced CSS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      Header
+    </header>
+
+    <aside class="sidebar">
+      Sidebar
+    </aside>
+
+    <main>
+      Main content
+    </main>
+
+    <footer>
+      Footer
+    </footer>
+  </body>
+</html>
+```
+
+### `styles.css`
+
+```css
+body {
+  grid-kiss: "+------------------------------+      "
+    "|           header ↑           | 120px"
+    "+------------------------------+      "
+    "                                      "
+    "+--150px---+  +----- auto -----+      "
+    "| .sidebar |  |      main      | auto "
+    "+----------+  +----------------+      "
+    "                                      "
+    "+------------------------------+      "
+    "|              ↓               |      "
+    "|         → footer ←           | 60px "
+    "+------------------------------+      ";
+}
+
+header {
+  background: cyan;
+}
+.sidebar {
+  background: lime;
+}
+main {
+  background: yellow;
+}
+```

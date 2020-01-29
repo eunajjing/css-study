@@ -14,5 +14,8 @@
         "stage": 2
       }
     }
+  },
+  "devDependencies": {
+    "postcss-grid-kiss": "^2.3.0"
   }
 }
